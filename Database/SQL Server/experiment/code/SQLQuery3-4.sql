@@ -1,20 +1,20 @@
--- 2.7 Í³¼ÆÓÐÑ§ÉúÑ¡ÐÞµÄ¿Î³ÌÃÅÊý
+ï»¿-- 2.7 ç»Ÿè®¡æœ‰å­¦ç”Ÿé€‰ä¿®çš„è¯¾ç¨‹é—¨æ•°
 SELECT COUNT(DISTINCT cno) 
-FROM Ñ¡ÐÞ;
+FROM é€‰ä¿®;
 
--- 2.8 ÇóÑ¡ÐÞÊý¾Ý¿â¿Î³ÌµÄÑ§ÉúµÄÆ½¾ùÄêÁä
+-- 2.8 æ±‚é€‰ä¿®æ•°æ®åº“è¯¾ç¨‹çš„å­¦ç”Ÿçš„å¹³å‡å¹´é¾„
 SELECT AVG(age) AS AvgAge
-FROM Ñ§Éú
+FROM å­¦ç”Ÿ
 WHERE sno IN (
     SELECT sno
-    FROM Ñ¡ÐÞ
-    JOIN ¿Î³Ì ON Ñ¡ÐÞ.cno = ¿Î³Ì.cno
-    WHERE cname = 'Êý¾Ý¿â'
+    FROM é€‰ä¿®
+    JOIN è¯¾ç¨‹ ON é€‰ä¿®.cno = è¯¾ç¨‹.cno
+    WHERE cname = 'æ•°æ®åº“'
 );
 
--- 2.9 Í³¼ÆÃ¿ÃÅ¿Î³ÌµÄÑ§ÉúÑ¡ÐÞÈËÊý£¨³¬¹ý10ÈËµÄ¿Î³Ì²ÅÍ³¼Æ£©
+-- 2.9 ç»Ÿè®¡æ¯é—¨è¯¾ç¨‹çš„å­¦ç”Ÿé€‰ä¿®äººæ•°ï¼ˆè¶…è¿‡10äººçš„è¯¾ç¨‹æ‰ç»Ÿè®¡ï¼‰
 SELECT cno, COUNT(*) AS NumStudents
-FROM Ñ¡ÐÞ
+FROM é€‰ä¿®
 GROUP BY cno
 HAVING COUNT(*) > 10
 ORDER BY COUNT(*) DESC, cno ASC;

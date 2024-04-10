@@ -1,34 +1,34 @@
-use [0107]
-IF OBJECT_ID('Ñ¡ÐÞ', 'U') IS NOT NULL
-    DROP TABLE Ñ¡ÐÞ;
-IF OBJECT_ID('¿Î³Ì', 'U') IS NOT NULL
-    DROP TABLE ¿Î³Ì;
-IF OBJECT_ID('Ñ§Éú', 'U') IS NOT NULL
-    DROP TABLE Ñ§Éú;
+ï»¿use [0107]
+IF OBJECT_ID('é€‰ä¿®', 'U') IS NOT NULL
+    DROP TABLE é€‰ä¿®;
+IF OBJECT_ID('è¯¾ç¨‹', 'U') IS NOT NULL
+    DROP TABLE è¯¾ç¨‹;
+IF OBJECT_ID('å­¦ç”Ÿ', 'U') IS NOT NULL
+    DROP TABLE å­¦ç”Ÿ;
     
-CREATE TABLE Ñ§Éú (
+CREATE TABLE å­¦ç”Ÿ (
     sno CHAR(4) PRIMARY KEY,
     sname VARCHAR(50) NOT NULL UNIQUE,
     age INT,
-    sex CHAR(2) NOT NULL DEFAULT 'ÄÐ'
+    sex CHAR(2) NOT NULL DEFAULT 'ç”·'
 );
 
 
-CREATE TABLE ¿Î³Ì (
+CREATE TABLE è¯¾ç¨‹ (
     cno CHAR(4) PRIMARY KEY,
     cname VARCHAR(3),
     cpno CHAR(4),
     ccredit INT ,
-    CONSTRAINT fk_cpno FOREIGN KEY (cpno) REFERENCES ¿Î³Ì(cno)
+    CONSTRAINT fk_cpno FOREIGN KEY (cpno) REFERENCES è¯¾ç¨‹(cno)
 );
 
-CREATE TABLE Ñ¡ÐÞ (
+CREATE TABLE é€‰ä¿® (
     sno CHAR(4),
     cno CHAR(4),
     grade INT CHECK (grade BETWEEN 0 AND 100),
     PRIMARY KEY (sno, cno),
-    FOREIGN KEY (sno) REFERENCES Ñ§Éú(sno),
-    FOREIGN KEY (cno) REFERENCES ¿Î³Ì(cno)
+    FOREIGN KEY (sno) REFERENCES å­¦ç”Ÿ(sno),
+    FOREIGN KEY (cno) REFERENCES è¯¾ç¨‹(cno)
 );
 
 --([grade]>=(0) AND [grade]<=(100))

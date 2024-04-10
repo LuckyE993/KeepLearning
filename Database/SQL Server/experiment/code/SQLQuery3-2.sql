@@ -1,16 +1,16 @@
--- 2.1 ²éÑ¯2Ñ§·ÖµÄ¿Î³ÌÃû¼°Ñ¡ÐÞµÄÑ§ÉúÃûºÍ³É¼¨
+ï»¿-- 2.1 æŸ¥è¯¢2å­¦åˆ†çš„è¯¾ç¨‹ååŠé€‰ä¿®çš„å­¦ç”Ÿåå’Œæˆç»©
 SELECT v_sc.cname, v_sc.sname, v_sc.grade
 FROM v_sc
-JOIN ¿Î³Ì ON v_sc.cname = ¿Î³Ì.cname
-WHERE ¿Î³Ì.ccredit = 2;
+JOIN è¯¾ç¨‹ ON v_sc.cname = è¯¾ç¨‹.cname
+WHERE è¯¾ç¨‹.ccredit = 2;
 
- --2.2 ¼ìË÷3Ñ§·Ö¿Î³ÌµÄ¿Î³ÌºÅºÍ¿Î³ÌÃû
+ --2.2 æ£€ç´¢3å­¦åˆ†è¯¾ç¨‹çš„è¯¾ç¨‹å·å’Œè¯¾ç¨‹å
 SELECT cno, cname
-FROM ¿Î³Ì
+FROM è¯¾ç¨‹
 WHERE ccredit = 3;
 
--- 2.3 ¼ìË÷ÄêÁä´óÓÚ23ËêµÄÄÐÑ§ÉúµÄÑ§ºÅºÍÐÕÃû
+-- 2.3 æ£€ç´¢å¹´é¾„å¤§äºŽ23å²çš„ç”·å­¦ç”Ÿçš„å­¦å·å’Œå§“å
 SELECT sno, sname
-FROM Ñ§Éú
-WHERE age > 23 AND sex = 'ÄÐ';
+FROM å­¦ç”Ÿ
+WHERE age > 23 AND sex = 'ç”·';
 

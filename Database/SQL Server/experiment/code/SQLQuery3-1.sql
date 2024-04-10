@@ -1,10 +1,10 @@
-IF EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_sc]'))
+锘縄F EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_sc]'))
     DROP VIEW [dbo].[v_sc];
 GO
 
 CREATE VIEW [dbo].[v_sc] AS
-SELECT 学生.sno, 学生.sname, 课程.cname, 选修.grade
-FROM 学生
-JOIN 选修 ON 学生.sno = 选修.sno
-JOIN 课程 ON 选修.cno = 课程.cno;
+SELECT 瀛︾敓.sno, 瀛︾敓.sname, 璇剧▼.cname, 閫変慨.grade
+FROM 瀛︾敓
+JOIN 閫変慨 ON 瀛︾敓.sno = 閫変慨.sno
+JOIN 璇剧▼ ON 閫変慨.cno = 璇剧▼.cno;
 GO

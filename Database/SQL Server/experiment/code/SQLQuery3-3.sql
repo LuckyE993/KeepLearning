@@ -1,29 +1,29 @@
-
--- 2.4 ����ѡ��������2ѧ�ֿγ̵���ѧ������
+﻿
+-- 2.4 检索选修了所有2学分课程的男学生姓名
 SELECT sname
-FROM ѧ��
+FROM 学生
 WHERE sno IN (
     SELECT sno
-    FROM ѡ��
-    JOIN �γ� ON ѡ��.cno = �γ�.cno
+    FROM 选修
+    JOIN 课程 ON 选修.cno = 课程.cno
     WHERE ccredit = 2
     GROUP BY sno
-    HAVING COUNT(*) = (SELECT COUNT(*) FROM �γ� WHERE ccredit = 2)
-) AND sex = '��';
+    HAVING COUNT(*) = (SELECT COUNT(*) FROM 课程 WHERE ccredit = 2)
+) AND sex = '男';
 
--- 2.5 ��������ѡ�����ſγ̵�ѧ��ѧ��
+-- 2.5 检索至少选修两门课程的学生学号
 SELECT sno
-FROM ѡ��
+FROM 选修
 GROUP BY sno
 HAVING COUNT(cno) >= 2;
 
--- 2.6 ������û��ѡ�޿γ̵Ŀγ̺�
+-- 2.6 检索你没有选修课程的课程号
 
 SELECT cno
-FROM �γ�
+FROM 课程
 WHERE cno NOT IN (
     SELECT cno
-    FROM ѡ��
+    FROM 选修
     WHERE sno = '0107'
 );
 
