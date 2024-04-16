@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 import sys
+
+
 class StudentDataProcessor:
     def __init__(self, db_path):
         self.db_path = db_path
@@ -64,12 +66,57 @@ class StudentDataProcessor:
             """
         }
         conn = self.get_db_connection()
+
         cursor = conn.cursor()
         for table_sql in tables_sql.values():
             cursor.execute(table_sql)
         self.create_ifaward_table()
+        self.create_users_table()
+        conn.commit()
+
+        conn.close()
+
+        print("Tables created successfully.")
+
+    def drop_tables(self):
+        conn = self.get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("DROP TABLE finaltest")
+        cursor.execute("DROP TABLE resit")
+        cursor.execute("DROP TABLE caltemp")
+        cursor.execute("DROP TABLE total_gpa")
+        cursor.execute("DROP TABLE ifaward")
         conn.commit()
         conn.close()
+
+    def create_users_table(self):
+        conn = self.get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT UNIQUE NOT NULL,
+                        password TEXT NOT NULL,
+                        role TEXT NOT NULL CHECK (role IN ('student', 'teacher', 'admin'))
+                    );
+                """)
+        conn.commit()
+        conn.close()
+
+    def add_user(self, username, password, role):
+        conn = self.get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)", (username, password, role))
+        conn.commit()
+        conn.close()
+
+    def get_user(self, username):
+        conn = self.get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+        user = cursor.fetchone()
+        conn.close()
+        return dict(user) if user else None
 
     def create_ifaward_table(self):
         sql = """
@@ -122,7 +169,6 @@ class StudentDataProcessor:
         """)
         conn.commit()
 
-
         cursor.execute("DELETE FROM total_gpa")
         conn.commit()
         # 计算总绩点
@@ -163,172 +209,16 @@ class StudentDataProcessor:
 
         print("Data processing completed successfully.")
 
-    def run(self):
-        while True:
-            print("\nAvailable Commands:")
-            print("1. Add Student/Score")
-            print("2. Update Student/Score")
-            print("3. Delete Student/Score")
-            print("4. Find Student Info")
-            print("5. Get Scores")
-            print("6. Show GPA")
-            print("0. Exit")
-            choice = input("Enter your choice: ")
 
-            if choice == '1':
-                self.handle_add()
-            elif choice == '2':
-                self.handle_update()
-            elif choice == '3':
-                self.handle_delete()
-            elif choice == '4':
-                self.handle_find()
-            elif choice == '5':
-                self.handle_get_scores()
-            elif choice == '6':
-                self.handle_show_gpa()
-            elif choice == '0':
-                print("Exiting program.")
-                sys.exit(0)
-            else:
-                print("Invalid choice. Please choose a valid option.")
-
-    def handle_add(self):
-        table = input("Enter table name (finaltest or resit): ")
-        data = {}
-        while True:
-            key = input("Enter field name (blank to finish): ")
-            if not key:
-                break
-            value = input(f"Enter value for {key}: ")
-            data[key] = value
-        self.add_student_or_score(table, data)
-
-    def handle_update(self):
-        table = input("Enter table name (finaltest or resit): ")
-        data = {}
-        conditions = {}
-        print("Enter data to update:")
-        while True:
-            key = input("Enter field name (blank to finish): ")
-            if not key:
-                break
-            value = input(f"Enter value for {key}: ")
-            data[key] = value
-        print("Enter conditions (e.g., to identify which records to update):")
-        while True:
-            key = input("Enter condition field name (blank to finish): ")
-            if not key:
-                break
-            value = input(f"Enter value for {key} (condition value): ")
-            conditions[key] = value
-        self.update_student_or_score(table, data, conditions)
-
-    def handle_delete(self):
-        table = input("Enter table name (finaltest or resit): ")
-        conditions = {}
-        print("Enter conditions to specify which records to delete:")
-        while True:
-            key = input("Enter condition field name (blank to finish): ")
-            if not key:
-                break
-            value = input(f"Enter value for {key} (condition value): ")
-            conditions[key] = value
-        self.delete_student_or_score(table, conditions)
-
-    def handle_find(self):
-        kwargs = {}
-        print("Enter search criteria:")
-        while True:
-            key = input("Enter field name (e.g., 学号 or 姓名, blank to finish): ")
-            if not key:
-                break
-            value = input(f"Enter value for {key}: ")
-            kwargs[key] = value
-        result = self.find_student_info(**kwargs)
-        print("Search Results:")
-        for item in result:
-            print(item)
-
-    def handle_get_scores(self):
-        student_id = input("Enter student ID: ")
-        scores = self.get_scores(student_id)
-        print("Scores:", scores)
-
-    def handle_show_gpa(self):
-        student_id = input("Enter student ID: ")
-        gpa = self.show_gpa(student_id)
-        print("GPA:", gpa)
-
-    def add_student_or_score(self, table, data):
-        conn = self.get_db_connection()
-        keys = ', '.join(data.keys())
-        values = tuple(data.values())
-        placeholders = ', '.join('?' for _ in data)
-        conn.execute(f'INSERT INTO {table} ({keys}) VALUES ({placeholders})', values)
-        conn.commit()
-        conn.close()
-        self.process_data()
-
-    def update_student_or_score(self, table, data, conditions):
-        conn = self.get_db_connection()
-        updates = ', '.join(f'{k} = ?' for k in data.keys())
-        values = tuple(data.values()) + tuple(conditions.values())
-        condition_str = ' AND '.join(f'{k} = ?' for k in conditions.keys())
-        conn.execute(f'UPDATE {table} SET {updates} WHERE {condition_str}', values)
-        conn.commit()
-        conn.close()
-        self.process_data()
-
-    def delete_student_or_score(self, table, conditions):
-        conn = self.get_db_connection()
-        condition_str = ' AND '.join(f'{k} = ?' for k in conditions.keys())
-        conn.execute(f'DELETE FROM {table} WHERE {condition_str}', tuple(conditions.values()))
-        conn.commit()
-        conn.close()
-        self.process_data()
-
-    def find_student_info(self, **kwargs):
-        conn = self.get_db_connection()
-        condition_str = ' AND '.join(f'{k} = ?' for k in kwargs.keys())
-        cursor = conn.execute(f'SELECT * FROM finaltest WHERE {condition_str}', tuple(kwargs.values()))
-        result = cursor.fetchall()
-        conn.close()
-        return [dict(row) for row in result]
-
-    def get_scores(self, student_id):
-        conn = self.get_db_connection()
-        cursor = conn.execute('SELECT * FROM finaltest WHERE 学号 = ?', (student_id,))
-        normal_scores = cursor.fetchall()
-        cursor = conn.execute('SELECT * FROM resit WHERE 学号 = ?', (student_id,))
-        resit_scores = cursor.fetchall()
-        conn.close()
-        return {'normal_scores': [dict(row) for row in normal_scores],
-                'resit_scores': [dict(row) for row in resit_scores]}
-
-    def show_gpa(self, student_id):
-        conn = self.get_db_connection()
-        cursor = conn.execute('SELECT 总绩点 FROM total_gpa WHERE 学号 = ?', (student_id,))
-        result = cursor.fetchone()
-        conn.close()
-        return result['总绩点'] if result else 'Not available'
-
-# Running the interactive processor
+# 使用示例
 if __name__ == "__main__":
-    database_path = 'students.db'
-    processor = StudentDataProcessor(database_path)
+    processor = StudentDataProcessor("students.db")
     processor.create_tables()
-    processor.run()
+    processor.import_data_from_excel("./dataset/机器人21级.xlsx", "finaltest")
+    processor.import_data_from_excel("./dataset/机器人21级补考.xlsx", "resit")
+    processor.process_data()
 
-
-
-# ### 使用示例
-#
-# if __name__ == "__main__":
-#
-#
-#     processor = StudentDataProcessor("students.db")
-#     processor.create_tables()
-#     processor.import_data_from_excel("./dataset/机器人21级.xlsx", "finaltest")
-#     processor.import_data_from_excel("./dataset/机器人21级补考.xlsx", "resit")
-#     processor.process_data()
+    processor.add_user('john_doe', 'securepassword123', 'teacher')
+    # Retrieve a user
+    user_info = processor.get_user('john_doe')
+    print(user_info)
