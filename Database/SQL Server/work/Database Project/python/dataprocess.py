@@ -135,10 +135,14 @@ class StudentDataProcessor:
         conn.close()
 
     def import_data_from_excel(self, file_path, table_name):
-        df = pd.read_excel(file_path)
-        conn = self.get_db_connection()
-        df.to_sql(table_name, conn, if_exists='replace', index=False)
-        conn.close()
+        try:
+            df = pd.read_excel(file_path)
+            conn = self.get_db_connection()
+            df.to_sql(table_name, conn, if_exists='append', index=False)
+            conn.close()
+            print(f"Data imported successfully into {table_name} from {file_path}")
+        except Exception as e:
+            print(f"Failed to import data from {file_path} to {table_name}: {e}")
 
     def process_data(self):
         conn = self.get_db_connection()
