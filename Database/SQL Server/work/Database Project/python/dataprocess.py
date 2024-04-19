@@ -86,6 +86,7 @@ class StudentDataProcessor:
         cursor.execute("DROP TABLE caltemp")
         cursor.execute("DROP TABLE total_gpa")
         cursor.execute("DROP TABLE ifaward")
+        cursor.execute("DROP TABLE users")
         conn.commit()
         conn.close()
 
@@ -109,6 +110,7 @@ class StudentDataProcessor:
         cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)", (username, password, role))
         conn.commit()
         conn.close()
+        print("Add User: User name = ", username, "password = ", password, " role = ", role)
 
     def get_user(self, username):
         conn = self.get_db_connection()
@@ -214,15 +216,28 @@ class StudentDataProcessor:
         print("Data processing completed successfully.")
 
 
-# 使用示例
 if __name__ == "__main__":
-    processor = StudentDataProcessor("students.db")
-    processor.create_tables()
-    processor.import_data_from_excel("./dataset/机器人21级.xlsx", "finaltest")
-    processor.import_data_from_excel("./dataset/机器人21级补考.xlsx", "resit")
-    processor.process_data()
+    processor = StudentDataProcessor("Unittest.db")
 
-    processor.add_user('john_doe', 'securepassword123', 'teacher')
-    # Retrieve a user
-    user_info = processor.get_user('john_doe')
-    print(user_info)
+    # processor.create_tables()
+    #
+    # processor.import_data_from_excel("./dataset/机器人21级.xlsx", "finaltest")
+    # processor.import_data_from_excel("./dataset/机器人21级补考.xlsx", "resit")
+    #
+    #
+    # processor.add_user('admin', 'admin', 'admin')
+    # processor.add_user('teacher', 'teacher', 'teacher')
+    # processor.add_user('student', 'student', 'student')
+    # user_info = processor.get_user('admin')
+    # print(user_info)
+    # user_info = processor.get_user('teacher')
+    # print(user_info)
+    # user_info = processor.get_user('student')
+    # print(user_info)
+    #
+    # processor.process_data()
+    processor.drop_tables()
+    #
+    # processor.add_user('john_doe', 'securepassword123', 'teacher')
+
+
