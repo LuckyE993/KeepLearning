@@ -1,4 +1,4 @@
-﻿
+﻿use [0107]
 ALTER TABLE 学生
 ADD addr NVARCHAR(100);
 

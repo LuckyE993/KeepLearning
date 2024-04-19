@@ -31,4 +31,4 @@ CREATE TABLE 选修 (
     FOREIGN KEY (cno) REFERENCES 课程(cno)
 );
 
---([grade]>=(0) AND [grade]<=(100))
+----([grade]>=(0) AND [grade]<=(100))

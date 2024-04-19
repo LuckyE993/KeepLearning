@@ -3,6 +3,7 @@ from pywebio import start_server
 from pywebio.input import *
 from pywebio.output import *
 from pywebio.session import local
+from dataprocess import StudentDataProcessor
 
 
 class StudentManagementSystem:
@@ -93,6 +94,13 @@ class StudentManagementSystem:
 		cursor.execute("SELECT * FROM ifaward WHERE 学号 = ?", (student_id,))
 		results['ifaward'] = cursor.fetchall()
 		cursor.close()
+
+		print("查询结果：")
+		for key in results:
+			print(f"{key} 数据:")
+			for row in results[key]:
+				print(dict(row))
+
 		return results
 
 	def query_class_info(self):
@@ -100,6 +108,12 @@ class StudentManagementSystem:
 		conn = self.get_db_connection()
 		cursor = conn.cursor()
 		cursor.execute("SELECT * FROM finaltest WHERE 班级 = ?", (class_id,))
+		results = cursor.fetchall()
+		cursor.close()
+		put_table([dict(row) for row in results])
+		conn = self.get_db_connection()
+		cursor = conn.cursor()
+		cursor.execute("SELECT * FROM resit WHERE 班级 = ?", (class_id,))
 		results = cursor.fetchall()
 		cursor.close()
 		put_table([dict(row) for row in results])
@@ -174,6 +188,9 @@ class StudentManagementSystem:
 				cursor.execute("UPDATE resit SET 成绩 = ? WHERE 学号 = ? AND 课程名称 = ?",
 				               (score['成绩'], student_id, score['课程名称']))
 			conn.commit()
+
+			StudentDataProcessor.process_data()
+
 			toast('成绩更新成功！', color='success')
 		except Exception as e:
 			toast('成绩更新失败：' + str(e), color='error')
@@ -201,4 +218,7 @@ class StudentManagementSystem:
 
 if __name__ == '__main__':
 	app = StudentManagementSystem()
-	start_server(app.main, port=8080)
+	# start_server(app.main, port=8080)
+
+	# app.query_student_info(student_id=213428010107)
+	app.query_class_info()

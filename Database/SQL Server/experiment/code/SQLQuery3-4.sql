@@ -1,4 +1,5 @@
-﻿-- 2.7 统计有学生选修的课程门数
+﻿use [0107]
+-- 2.7 统计有学生选修的课程门数
 SELECT COUNT(DISTINCT cno) 
 FROM 选修;
 

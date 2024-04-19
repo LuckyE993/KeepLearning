@@ -1,4 +1,6 @@
-﻿IF EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_sc]'))
+﻿use [0107]
+
+IF EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_sc]'))
     DROP VIEW [dbo].[v_sc];
 GO
 
