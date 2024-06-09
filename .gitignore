@@ -3,4 +3,5 @@
 /.idea
 
 /.vscode/
-/Pytorch/DataLoad/hymenoptera_data/
+/Pytorch/DataLoad/hymenoptera_data/*
+
