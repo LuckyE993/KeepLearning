@@ -5,3 +5,7 @@
 /.vscode/
 /Pytorch/DataLoad/hymenoptera_data/*
 
+Pytorch/torchvision_dataset/dataset/*
+
+Pytorch/.idea/*
+
