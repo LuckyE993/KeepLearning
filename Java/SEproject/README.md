@@ -46,3 +46,9 @@ Hello.vue
 npm install vue-router@3
 ```
 Version 4 only for Vue3
+
+# VueX
+```
+npm install vuex@next
+```
+
