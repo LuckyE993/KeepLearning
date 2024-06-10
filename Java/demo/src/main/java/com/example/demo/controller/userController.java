@@ -8,7 +8,7 @@ import com.example.demo.mapper.UserMapper;
 import java.util.List;
 
 @RestController
-
+@CrossOrigin
 public class userController {
     @Autowired
     private UserMapper userMapper;
