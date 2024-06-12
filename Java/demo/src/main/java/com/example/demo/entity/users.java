@@ -1,64 +1,69 @@
 package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
+@Data
+@TableName("user")
 public class users {
-    private int id;
-    private String username;
-    private String passwd;
-    private String birthday;
+    @TableId
+    private int userId;
+    private String userName;
+    private String userPasswd;
+    private String userPhoneNumber;
+    private Boolean userPermission;
     // Constructors
 
-    public int getId() {
-        return id;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getUserPasswd() {
+        return userPasswd;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setUserPasswd(String userPasswd) {
+        this.userPasswd = userPasswd;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
+    public Boolean getUserPermission() {
+        return userPermission;
+    }
+
+    public void setUserPermission(Boolean userPermission) {
+        this.userPermission = userPermission;
     }
 
     @Override
     public String toString() {
         return "users{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + passwd + '\'' +
-                ", birthday='" + birthday + '\'' +
+                "id=" + userId +
+                ", username='" + userName + '\'' +
+                ", password='" + userPasswd + '\'' +
+                ", phonenumber='" + userPhoneNumber + '\'' +
                 '}';
     }
 
-    public String getUserName() {
-
-        return username;
-    }
-
-    public void setUserName(String userName) {
-        this.username = userName;
-    }
-
-    public String getPassword() {
-        return passwd;
-    }
 }

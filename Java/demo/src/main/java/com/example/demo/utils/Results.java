@@ -47,14 +47,14 @@ public class Results {
 
     public static Results ok(){
         Results results = new Results();
-        results.setCode(ResultsCode.SUCCESS);
+        results.setCode(Result.SUCCESS);
         results.setSuccess(true);
         results.setMessage("成功");
         return results;
     }
     public static Results error(){
         Results results = new Results();
-        results.setCode(ResultsCode.ERROR);
+        results.setCode(Result.ERROR);
         results.setSuccess(false);
         results.setMessage("失败");
         return results;

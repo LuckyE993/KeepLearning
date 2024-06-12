@@ -22,8 +22,8 @@ public class paramsController {
 
     @RequestMapping(value = "/params3",method = RequestMethod.POST)
     public String params3(users user) {
-        System.out.println("userName="+user.getUsername());
-        System.out.println("password="+user.getPasswd());
+        System.out.println("userName="+user.getUserName());
+        System.out.println("password="+user.getUserPasswd());
         return "params3";
     }
     @GetMapping("/test/**")
