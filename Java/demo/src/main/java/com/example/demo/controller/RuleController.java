@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.RPRequest;
 import com.example.demo.entity.rule;
 import com.example.demo.services.RuleService;
 import com.example.demo.utils.Results;
@@ -37,7 +38,7 @@ public class RuleController {
     }
 
     @PostMapping("/addRuleAndPrizes")
-    public Results addRuleAndPrizes(@RequestBody RuleAndPrizesRequest request) {
+    public Results addRuleAndPrizes(@RequestBody RPRequest request) {
         boolean success = ruleService.insertRuleAndPrizes(request.getRule(), request.getPrizes());
         if (success) {
             return Results.ok().message("规则和奖品添加成功");

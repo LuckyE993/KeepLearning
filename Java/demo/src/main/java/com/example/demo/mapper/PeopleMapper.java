@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.entity.People;
+import com.example.demo.entity.prize;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public interface PeopleMapper {
 
     @Select("SELECT * FROM people WHERE peopleListId = #{peopleListId}")
     List<People> findByPeopleListId(String peopleListId);
+
 
     @Insert({
             "<script>",
@@ -28,5 +30,8 @@ public interface PeopleMapper {
 
     @Update("UPDATE people SET peopleName = #{peopleName}, peoplePhoneNumber = #{peoplePhoneNumber}, peoplePrize = #{peoplePrize} WHERE peopleId = #{peopleId}")
     int updatePeople(People people);
+
+    @Update("UPDATE people SET peoplePrize = #{peoplePrize} WHERE peopleId = #{peopleId}")
+    int updatePeoplePrize(@Param("peopleId") Integer peopleId, @Param("peoplePrize") String peoplePrize);
 
 }

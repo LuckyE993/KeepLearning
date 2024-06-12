@@ -12,6 +12,7 @@ public interface RuleMapper extends BaseMapper<rule>{
     @Select("SELECT * FROM rule WHERE ruleId = #{ruleId}")
     rule findById(Integer ruleId);
 
+
     @Select("SELECT * FROM rule WHERE userId = #{userId}")
     List<rule> findByUserId(Integer userId);
 
@@ -39,5 +40,10 @@ public interface RuleMapper extends BaseMapper<rule>{
 
     @Delete("DELETE FROM prize WHERE prizeListId = #{prizeListId}")
     int deletePrizesByPrizeListId(Integer prizeListId);
+
+
+    @Select("SELECT * FROM prize WHERE prizeId = #{prizeId}")
+    prize findPrizeById(Integer prizeId);
+
 }
 

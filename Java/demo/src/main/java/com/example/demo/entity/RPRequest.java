@@ -1,9 +1,7 @@
-package com.example.demo.controller;
-import com.example.demo.entity.prize;
-import com.example.demo.entity.rule;
+package com.example.demo.entity;
 import java.util.List;
 
-public class RuleAndPrizesRequest {
+public class RPRequest {
 
     private rule rule;
     private List<prize> prizes;
