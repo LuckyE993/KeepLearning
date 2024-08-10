@@ -9,3 +9,6 @@ Pytorch/torchvision_dataset/dataset/*
 
 Pytorch/.idea/*
 
+DeepLearning/.obsidian
+DeepLearning/src/__pycache__
+DeepLearning/.idea
