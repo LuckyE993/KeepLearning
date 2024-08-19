@@ -8,8 +8,7 @@ int main(int argc, char** argv )
         printf("usage: DisplayImage.out <Image_Path>\n");
         return -1;
     }
-    Mat image;
-    image = imread( argv[1], 1 );
+    const Mat image = imread(argv[1], 1);
     if ( !image.data )
     {
         printf("No image data \n");

@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "8739166483613f9c",
+    "type": "split",
+    "children": [
+      {
+        "id": "213630b566770a71",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bf7a6436a0ff641",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OpenCV Learning Notebook.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8ee924e9a21ade58",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notebook/2-遍历像素-缩减色彩空间.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "598fa2d0197fff10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notebook/3-掩码运算.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "056fc7e96969f10c",
+    "type": "split",
+    "children": [
+      {
+        "id": "6c8f87995525bc82",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ef9a4adb410eaab",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1131d04f56d5a7d4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "061a6206a98bddcf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cb9336fa2a326f24",
+    "type": "split",
+    "children": [
+      {
+        "id": "84a4ed2f19c4c371",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b0b3b85601eb9457",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Notebook/3-掩码运算.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9e1fafae9af8f15c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Notebook/3-掩码运算.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "02e31041b8fc0e7c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2b26d196ef8ecb4e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Notebook/3-掩码运算.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "598fa2d0197fff10",
+  "lastOpenFiles": [
+    "Notebook/2-遍历像素-缩减色彩空间.md",
+    "Notebook/3-掩码运算.md",
+    "Notebook/1-Mat-基本图像容器.md",
+    "Notebook/Figure",
+    "Notebook/Figure/Pasted image 20240818203301.png",
+    "OpenCV Learning Notebook.md",
+    "Notebook"
+  ]
+}
