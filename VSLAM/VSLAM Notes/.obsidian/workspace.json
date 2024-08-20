@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "49710fed65dcc84f",
+    "type": "split",
+    "children": [
+      {
+        "id": "b711bd04506c7303",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b349459447be6f58",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notebook/视觉里程计.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ea20c1c6803b2a61",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notebook/视觉里程计——特征点法.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9cb650e9254933f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notebook/2-VSLAM入门.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "699cd3fce742ee7f",
+    "type": "split",
+    "children": [
+      {
+        "id": "530572be87b16462",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "74875f7dcc52ed6a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "573f44165e9167e8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3976f513425b63ce",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "dc315df1a0551a97",
+    "type": "split",
+    "children": [
+      {
+        "id": "3f9bd6a4e8691295",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e23ae26320e70e55",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Notebook/视觉里程计——特征点法.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2fbdd28b71e6f003",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Notebook/视觉里程计——特征点法.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "253fe808ed35996c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2abb1616221825d0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Notebook/视觉里程计——特征点法.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "ea20c1c6803b2a61",
+  "lastOpenFiles": [
+    "Notebook/视觉里程计.md",
+    "Notebook/视觉里程计——特征点法.md",
+    "Notebook/2-VSLAM入门.md",
+    "Notebook/1-数学基础.md",
+    "VSLAM Learning Notebook.md",
+    "Notebook/Figure",
+    "核心关键词.md",
+    "Notebook/0-线性代数相关.md",
+    "Notebook/Figure/Pasted image 20240820102742.png",
+    "未命名 1",
+    "Notebook"
+  ]
+}
