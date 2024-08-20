@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notebook/3-掩码运算.md",
+                "file": "OpenCV Learning Notebook.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notebook/3-掩码运算.md",
+                "file": "OpenCV Learning Notebook.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notebook/3-掩码运算.md",
+                "file": "OpenCV Learning Notebook.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notebook/3-掩码运算.md"
+                "file": "OpenCV Learning Notebook.md"
               }
             }
           }
@@ -173,8 +173,8 @@
   },
   "active": "598fa2d0197fff10",
   "lastOpenFiles": [
-    "Notebook/2-遍历像素-缩减色彩空间.md",
     "Notebook/3-掩码运算.md",
+    "Notebook/2-遍历像素-缩减色彩空间.md",
     "Notebook/1-Mat-基本图像容器.md",
     "Notebook/Figure",
     "Notebook/Figure/Pasted image 20240818203301.png",
